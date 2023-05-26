@@ -1,0 +1,34 @@
+﻿<form [formGroup]="configureForm" (ngSubmit)="onFormSubmit()">
+  <div class="form-group">
+    <label>Jira Software Username:</label>
+    <input type="text" formControlName="jiraUsername" class="form-control" [ngClass]="{ 'is-invalid': submitted && configureForm.get('jiraUsername').errors }" />
+    <div *ngIf="submitted && configureForm.get('jiraUsername').errors" class="invalid-feedback">
+      <div *ngIf="configureForm.get('jiraUsername').errors.required">Email is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Jira Software Password:</label>
+    <input type="password" formControlName="jiraPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && configureForm.get('jiraPassword').errors }" />
+    <div *ngIf="submitted && configureForm.get('jiraPassword').errors" class="invalid-feedback">
+      <div *ngIf="configureForm.get('jiraPassword').errors.required">Password is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Jira Software URL:</label>
+    <input type="url" formControlName="jiraURL" class="form-control" [ngClass]="{ 'is-invalid': submitted && configureForm.get('jiraURL').errors }" />
+    <div *ngIf="submitted && configureForm.get('jiraURL').errors" class="invalid-feedback">
+      <div *ngIf="configureForm.get('jiraURL').errors.required">URL is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Repository Name:</label>
+    <input type="text" formControlName="repositoryName" class="form-control" [ngClass]="{ 'is-invalid': submitted && configureForm.get('repositoryName').errors }" />
+    <div *ngIf="submitted && configureForm.get('repositoryName').errors" class="invalid-feedback">
+      <div *ngIf="configureForm.get('repositoryName').errors.required">Repository Name is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="reset" class="btn btn-primary">Reset</button>
+  </div>
+</form>
